@@ -91,12 +91,13 @@
   _.reject = function(collection, test) {
     // TIP: see if you can re-use _.filter() here, without simply
     // copying code in and modifying it
-      _.filter(collection, function(element) {
-        return !test;
+      return _.filter(collection, function(element) {
+        return !test(element);
       })
   };
 
   // Produce a duplicate-free version of the array.
+function(iterator =
   _.uniq = function(array, isSorted, iterator) {
       var unique = [];
       var result = [];
@@ -124,9 +125,6 @@
     // like each(), but in addition to running the operation on all
     // the members, it also maintains an array of results.
     var result = [];
-    if (typeof iterator !== 'function') {    
-      debugger;
-    }
     _.each(collection, function(element) {
       result.push(iterator(element));
     })
@@ -172,6 +170,14 @@
   //   }); // should be 5, regardless of the iterator function passed in
   //          No accumulator is given so the first element is used.
   _.reduce = function(collection, iterator, accumulator) {
+    if (arguments.length === 2) {
+      var accumulator = collection[0];
+      collection = collection.slice(1);
+    }
+    _.each(collection, function(item) {
+      accumulator = iterator(accumulator, item)
+    })
+    return accumulator;
   };
 
   // Determine if the array or object contains a given value (using `===`).
