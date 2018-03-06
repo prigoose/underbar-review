@@ -97,7 +97,6 @@
   };
 
   // Produce a duplicate-free version of the array.
-function(iterator =
   _.uniq = function(array, isSorted, iterator) {
       var unique = [];
       var result = [];
