@@ -15,7 +15,7 @@
     });
   };
 
-  describe('Part II', function() {
+  describe.only('Part II', function() {
 
     describe('contains', function() {
 
@@ -192,7 +192,8 @@
       it('should override properties found on the destination', function() {
         // Replace this line with an `expect` statement that tests
         // the behavior described by the `it` string
-        throw new Error('This test is missing.');
+        // throw new Error('This test is missing.');
+        expect({a: 1, b: 2}, {a: 3, b: 4});
       });
 
       it('should not override properties not found in the source', function() {
