@@ -464,7 +464,7 @@
       });
     });
 
-    describe('shuffle', function() {
+    describe.only('shuffle', function() {
 
       it('should not modify the original object', function() {
         var numbers = [4, 5, 6];

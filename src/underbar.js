@@ -242,6 +242,21 @@
   // input array. For a tip on how to make a copy of an array, see:
   // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
+	//copy array
+	var arrCopy = array.slice();
+	console.log(arrCopy)
+	var result = [];
+	//generate random numbers from 0 to length of array, no repeats. (Google this)
+		//for loop
+		
+		while (arrCopy.length > 0) {
+			var chosenIndex = Math.floor(Math.random() * arrCopy.length);
+			console.log('length', arrCopy.length);
+			console.log('index', chosenIndex);
+			result.push(arrCopy[chosenIndex]);
+			arrCopy.splice(chosenIndex,1);
+		}
+	return result;
   };
 
 
