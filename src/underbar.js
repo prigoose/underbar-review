@@ -217,8 +217,9 @@
       return false;
     } else {
       return _.every(collection, function(item) {
-        return ! (Boolean(iterator(item)) === false);
-      })
+        // return ! (Boolean(iterator(item)) === false);
+        return 
+      }, ???)
     }
   };
 
@@ -308,6 +309,11 @@
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
+    //calledArgs array to keep track of the arguments that have been called;
+    //if it has NOT been called, then call
+    var calledArgs = [];
+    // return function() {
+    //   if ()
   };
 
   // Delays a function for the given number of milliseconds, and then calls
