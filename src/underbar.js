@@ -199,9 +199,12 @@
       // debugger;
       if (accumulator === false) {
         return accumulator;
-      } else {
-        accumulator = iterator(item);
+      } else if (iterator !== undefined) {
+        accumulator = Boolean(iterator(item));
         return accumulator;
+      } else {
+        accumulator = Boolean(item)
+        return accumulator
       }
     }, true)
   };
